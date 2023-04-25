@@ -69,7 +69,7 @@ class MassengerScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(3.0),
                   child: Row(
                     children: const [
-                    Icon(Icons.search),
+                      Icon(Icons.search),
                       SizedBox(
                         width: 10,
                       ),
@@ -81,19 +81,28 @@ class MassengerScreen extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-             SizedBox(height: 90,
-               child: ListView.separated(
-                 scrollDirection: Axis.horizontal,
-                   itemBuilder: (context, index) => buildStoryItem(),
-                   separatorBuilder: (context, index) => const SizedBox(width: 10,),
-                   itemCount: 15),
-             ),
-              const SizedBox(height: 20,),
+              //SSSSSSSSSSttttttttttttooooooooooooooorrrrrrrryyyyyyyyyyyy
+              SizedBox(
+                height: 90,
+                child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) => buildStoryItem(),
+                    separatorBuilder: (context, index) => const SizedBox(
+                          width: 10,
+                        ),
+                    itemCount: 15),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              //chaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaattttttttttttttttt
               ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) => buildChatItem(),
-                  separatorBuilder: (context, index) => const SizedBox(height: 15,),
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) => buildChatItem(),
+                  separatorBuilder: (context, index) => const SizedBox(
+                        height: 15,
+                      ),
                   itemCount: 15),
             ],
           ),
@@ -101,11 +110,116 @@ class MassengerScreen extends StatelessWidget {
       ),
     );
   }
+
   Widget buildStoryItem() => SizedBox(
-    width: 50,
-    child: Column(
-      children: [
-        Stack(
+        width: 50,
+        child: Column(
+          children: [
+            Stack(
+              alignment: AlignmentDirectional.bottomEnd,
+              children: [
+                const CircleAvatar(
+                  backgroundColor: Colors.black,
+                  radius: 25,
+                  child: Image(
+                    image: NetworkImage(
+                        "https://upload.wikimedia.org/wikipedia/ar/8/8c/Al_Ahly_SC_logo.png"),
+                  ),
+                ),
+                const CircleAvatar(
+                  radius: 8,
+                  backgroundColor: Colors.white,
+                ),
+                CircleAvatar(
+                  radius: 6,
+                  backgroundColor: Colors.green[300],
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            const Text(
+              'AlAhlay Fook Elgamee3',
+              style: TextStyle(color: Colors.white),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            )
+          ],
+        ),
+      );
+
+  Widget buildChatItem() => Row(
+        children: [
+          Stack(
+            alignment: AlignmentDirectional.bottomEnd,
+            children: [
+              const CircleAvatar(
+                backgroundColor: Colors.black,
+                radius: 25,
+                child: Image(
+                  image: NetworkImage(
+                      "https://upload.wikimedia.org/wikipedia/ar/8/8c/Al_Ahly_SC_logo.png"),
+                ),
+              ),
+              const CircleAvatar(
+                radius: 8,
+                backgroundColor: Colors.white,
+              ),
+              CircleAvatar(
+                radius: 6,
+                backgroundColor: Colors.green[300],
+              )
+            ],
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Abdelmenam Adel',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Text(
+                        'Alo Ahmed Eziak Amel Eigh Alo Ahmed kalt wala eigh',
+                        style: TextStyle(color: Colors.white),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+                      child: CircleAvatar(
+                        radius: 2,
+                        backgroundColor: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      '05:32 PM',
+                      style: TextStyle(color: Colors.white),
+                    )
+                  ],
+                )
+              ],
+            ),
+          )
+        ],
+      );
+
+  Widget buildTryItem() => ListTile(
+        leading: Stack(
           alignment: AlignmentDirectional.bottomEnd,
           children: [
             const CircleAvatar(
@@ -126,115 +240,21 @@ class MassengerScreen extends StatelessWidget {
             )
           ],
         ),
-        const SizedBox(
-          height: 7,
-        ),
-        const Text(
-          'AlAhlay Fook Elgamee3',
-          style: TextStyle(color: Colors.white),
-          maxLines: 2,
+        title: const Text(
+          'Abdelmenam Adel',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          maxLines: 1,
           overflow: TextOverflow.ellipsis,
-        )
-      ],
-    ),
-  );
-  Widget buildChatItem() =>  Row(
-    children: [
-      Stack(
-        alignment: AlignmentDirectional.bottomEnd,
-        children: [
-          const CircleAvatar(
-            backgroundColor: Colors.black,
-            radius: 25,
-            child: Image(
-              image: NetworkImage(
-                  "https://upload.wikimedia.org/wikipedia/ar/8/8c/Al_Ahly_SC_logo.png"),
-            ),
-          ),
-          const CircleAvatar(
-            radius: 8,
-            backgroundColor: Colors.white,
-          ),
-          CircleAvatar(
-            radius: 6,
-            backgroundColor: Colors.green[300],
-          )
-        ],
-      ),
-      const SizedBox(
-        width: 10,
-      ),
-      Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Abdelmenam Adel',
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.bold),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
-            const SizedBox(height: 5,),
-            Row(
-              children: const [
-                Expanded(
-                  child: Text(
-                    'Alo Ahmed Eziak Amel Eigh Alo Ahmed kalt wala eigh',
-                    style: TextStyle(color: Colors.white),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 10,right: 10,top: 10),
-                  child: CircleAvatar(radius: 2,backgroundColor: Colors.white,),
-                ),
-                Text('05:32 PM',style:
-                TextStyle(color: Colors.white),)
-              ],
-            )
-          ],
         ),
-      )
-    ],
-  );
-  Widget buildTryItem()=> ListTile(
-    leading:  Stack(
-      alignment: AlignmentDirectional.bottomEnd,
-      children: [
-        const CircleAvatar(
-          backgroundColor: Colors.black,
-          radius: 25,
-          child: Image(
-            image: NetworkImage(
-                "https://upload.wikimedia.org/wikipedia/ar/8/8c/Al_Ahly_SC_logo.png"),
-          ),
+        subtitle: const Text(
+          'Alo Ahmed Eziak Amel Eigh Alo Ahmed kalt wala eigh',
+          style: TextStyle(color: Colors.white),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
         ),
-        const CircleAvatar(
-          radius: 8,
-          backgroundColor: Colors.white,
+        trailing: const Text(
+          '05:32 PM',
+          style: TextStyle(color: Colors.white),
         ),
-        CircleAvatar(
-          radius: 6,
-          backgroundColor: Colors.green[300],
-        )
-      ],
-    ),
-    title: const Text(
-      'Abdelmenam Adel',
-      style: TextStyle(
-          color: Colors.white, fontWeight: FontWeight.bold),
-      maxLines: 1,
-      overflow: TextOverflow.ellipsis,
-    ),
-  subtitle: const Text(
-    'Alo Ahmed Eziak Amel Eigh Alo Ahmed kalt wala eigh',
-    style: TextStyle(color: Colors.white),
-    maxLines: 1,
-    overflow: TextOverflow.ellipsis,
-  ),
-    trailing:  const Text('05:32 PM',style:
-    TextStyle(color: Colors.white),),
-  );
+      );
 }
