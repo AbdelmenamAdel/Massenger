@@ -190,12 +190,51 @@ class MassengerScreen extends StatelessWidget {
                   padding: EdgeInsets.only(left: 10,right: 10,top: 10),
                   child: CircleAvatar(radius: 2,backgroundColor: Colors.white,),
                 ),
-                Text('05:32 PM',style: TextStyle(color: Colors.white),)
+                Text('05:32 PM',style:
+                TextStyle(color: Colors.white),)
               ],
             )
           ],
         ),
       )
     ],
+  );
+  Widget buildTryItem()=> ListTile(
+    leading:  Stack(
+      alignment: AlignmentDirectional.bottomEnd,
+      children: [
+        const CircleAvatar(
+          backgroundColor: Colors.black,
+          radius: 25,
+          child: Image(
+            image: NetworkImage(
+                "https://upload.wikimedia.org/wikipedia/ar/8/8c/Al_Ahly_SC_logo.png"),
+          ),
+        ),
+        const CircleAvatar(
+          radius: 8,
+          backgroundColor: Colors.white,
+        ),
+        CircleAvatar(
+          radius: 6,
+          backgroundColor: Colors.green[300],
+        )
+      ],
+    ),
+    title: const Text(
+      'Abdelmenam Adel',
+      style: TextStyle(
+          color: Colors.white, fontWeight: FontWeight.bold),
+      maxLines: 1,
+      overflow: TextOverflow.ellipsis,
+    ),
+  subtitle: const Text(
+    'Alo Ahmed Eziak Amel Eigh Alo Ahmed kalt wala eigh',
+    style: TextStyle(color: Colors.white),
+    maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+  ),
+    trailing:  const Text('05:32 PM',style:
+    TextStyle(color: Colors.white),),
   );
 }
